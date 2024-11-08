@@ -1,0 +1,24 @@
+:root {
+    --orange: #ff7500;
+    --black: #000;
+    --white: #fff;
+    --gray: #414141;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.header-logo,
+.footer-logo {
+    max-width: 252px;
+    max-height: auto;
+}
+
+@media all and (max-width: 640px) {
+    .header-logo,
+    .footer-logo {
+        max-width: 200px;
+        max-height: auto;
+    }
+}

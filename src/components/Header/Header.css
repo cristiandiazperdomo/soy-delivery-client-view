@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    height: 140px;
+    background-color: var(--orange);
+    padding: 10px 100px;
+}
+
+.routes {
+    display: flex;
+    justify-content: space-between;
+    width: 617px;
+}
+
+.mobile-routes {
+    display: none;
+}
+
+@media all and (max-width: 1280px) {
+    .header {
+        padding: 10px 48px;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .routes {
+        display: none;
+    }
+
+    .mobile-routes {
+        display: block;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .header {
+        padding: 10px 25px;
+    }
+}
