@@ -1,17 +1,17 @@
 import {Footer} from "../../components/Footer/Footer";
 import {Header} from "../../components/Header/Header";
-import "./Home.css";
+import "./OrderNotificationSignup.css";
 
-export const Home = () => {
+export const OrderNotificationSignup = () => {
     return (
         <div className="min-h-screen">
             <Header />
-            <div className="home">
-                <div className="form-container">
+            <div className="form">
+                <form className="form-container">
                     <h2 className="form-title">
                         ¿Compraste en Temu y necesitas seguir tu pedido?
                     </h2>
-                    <p className="text-sm">
+                    <p className="form-subtext">
                         Recibe las novedades de tu pedido por correo
                         electrónico, llenando el siguiente formulario:
                     </p>
@@ -20,7 +20,7 @@ export const Home = () => {
                         <input placeholder="Celular" />
                         <input placeholder="Correo electrónico" />
                     </div>
-                    <p className="text-xs">
+                    <p className="form-subtext-smaller">
                         Asegúrate de que sea tu correo habitual, para no
                         perderte las notificaciones.
                     </p>
@@ -43,13 +43,13 @@ export const Home = () => {
                             <path
                                 d="M17.3327 8.5L9.99935 15.8333L6.66602 12.5"
                                 stroke="white"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                             />
                         </svg>
                     </button>
-                </div>
+                </form>
             </div>
             <Footer />
         </div>

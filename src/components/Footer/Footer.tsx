@@ -56,7 +56,7 @@ export const Footer = () => {
                 <div className="footer-email">
                     <p className="footer-title">
                         <svg
-                            width="32"
+                            width="28"
                             height="28"
                             viewBox="0 0 32 28"
                             fill="none"

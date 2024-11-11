@@ -1,0 +1,201 @@
+.package-information {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 52px 24px;
+}
+
+.package-information .package-information-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.package-information, .extra-data {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.extra-data, .banner-top, .package-tracker, .look-for-my-package {
+    padding: 24px 32px;
+}
+
+.package-information .banner-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    background-color: var(--orange);
+    border-radius: 12px;
+}
+
+.banner-top .current-status {
+    text-align: center;
+    width: 100%;
+}
+
+.banner-top .current-status p {
+    font-size: 20px;
+}
+
+.banner-top .current-status p:last-child {
+   font-weight: 700;
+   margin-top: 8px;
+}
+
+.package-tracker, .extra-data, .look-for-my-package {
+    border: 3px solid var(--orange);
+    border-radius: 16px;
+}
+
+.package-tracker {
+    margin-top: 32px;
+}
+
+.package-tracker-header, .extra-data-header, .look-for-my-package-header {
+    display: flex;
+    gap: 12px;
+}
+
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange);
+    border-radius: 4px;
+    min-width: 28px;
+    height: 28px;
+}
+
+.svg-container-disabled {
+    background-color: var(--lightblack);
+    color: var(--white)
+}
+
+.svg-container svg {
+    width: 20px;
+    height: 20px;
+}
+
+.package-tracker-header span, .extra-data-header span, .look-for-my-package-header span {
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--black)
+}
+
+.package-tracker-body, .extra-data-body, .look-for-my-package-body {
+    margin-top: 40px;    
+}
+
+.package-tracker-location {
+    display: flex;
+    gap: 7px;
+}
+
+.rounded-ball-container .line {
+    position: relative;
+    height: 64px;
+    width: 20px;
+    border-left: 2px dashed var(--black);
+    margin: 12px 0 12px 5px;
+}
+
+.rounded-ball-container .no-line {
+    margin-right: 16px;
+}
+
+.rounded-ball-container svg {
+    position: absolute;
+    top: 78%;
+    left: -13px;
+}
+
+.rounded-ball {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--orange);
+    margin-top: 4px;
+}
+
+.gray {
+    background-color: var(--black);
+}
+
+.package-tracker-status p:first-child{
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--black);
+}
+
+.package-tracker-status p:last-child{
+    color: var(--lightblack);
+}
+
+.extra-data {
+    height: fit-content;
+}
+
+.extra-data-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+} 
+
+.extra-data-item .extra-data-header {
+    display: flex;
+}
+
+.extra-data-header .item-title {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.extra-data-header .item-title-disabled {
+    color: var(--lightblack);
+}
+
+.extra-data-header .item-value {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 8px;
+    color: var(--lightblack)
+}
+
+.look-for-my-package {
+    background-color: var(--lightorange);
+    margin-top: 40px;
+}
+
+.look-for-my-package-body p {
+    padding-bottom: 16px;
+}
+
+.look-for-my-package-body p span {
+    font-weight: 600;
+}
+
+@media all and (max-width: 1024px) {
+    .package-information .package-information-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+@media all and (max-width: 768px) {
+    .package-information {
+        padding: 52px 52px;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .package-information {
+        padding: 52px 24px;
+    }
+
+    .extra-data-body {
+        grid-template-columns: repeat(1, 1fr);
+    } 
+}
