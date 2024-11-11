@@ -1,9 +1,9 @@
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/images/logo.svg";
 
-import ig from "../../assets/ig.svg";
-import fb from "../../assets/fb.svg";
-import linkedin from "../../assets/in.svg";
-import tw from "../../assets/tw.svg";
+import ig from "../../assets/images/ig.svg";
+import fb from "../../assets/images/fb.svg";
+import linkedin from "../../assets/images/in.svg";
+import tw from "../../assets/images/tw.svg";
 
 import "./Footer.css";
 

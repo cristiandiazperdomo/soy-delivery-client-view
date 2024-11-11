@@ -1,12 +1,7 @@
 import {Footer} from "../../components/Footer/Footer";
 import {Header} from "../../components/Header/Header";
 
-import business from "../../assets/business.svg";
-import house from "../../assets/house.svg";
-import phone from "../../assets/phone.svg";
-import phoneOrange from "../../assets/phone-orange.svg";
-import user from "../../assets/user.svg";
-
+import {PackageInformationDetails} from "../../components/PackageInformationDetails/PackageInformationDetails";
 import "./PackageInformation.css";
 
 export const PackageInformation = () => {
@@ -126,81 +121,7 @@ export const PackageInformation = () => {
                             </div>
                             <span>Información del pedido:</span>
                         </div>
-                        <div className="extra-data-body">
-                            {[
-                                {
-                                    svgIcon: phoneOrange,
-                                    title: "Número de rastreo de soydelivery",
-                                    value: "768543",
-                                },
-                                {
-                                    svgIcon: phone,
-                                    title: "Número de rastreo secundario",
-                                    value: "768543",
-                                },
-                                {
-                                    svgIcon: user,
-                                    title: "Cliente",
-                                    value: "Nombre Apellido",
-                                },
-                                {
-                                    svgIcon: user,
-                                    title: "Número de celular",
-                                    value: "098162635",
-                                },
-                                {
-                                    svgIcon: business,
-                                    title: "Dirección",
-                                    value: "Dirección del cliente",
-                                },
-                                {
-                                    svgIcon: house,
-                                    title: "Dirección de entrega",
-                                    value: "Dirección del cliente",
-                                },
-                            ].map((el) => {
-                                const isDisabled: boolean =
-                                    el.title === "Número de rastreo secundario";
-
-                                return (
-                                    <div
-                                        className="extra-data-item"
-                                        key={el.title}
-                                    >
-                                        <div className="extra-data-header">
-                                            <div
-                                                className={`svg-container
-                                                ${
-                                                    isDisabled
-                                                        ? "svg-container-disabled"
-                                                        : ""
-                                                }
-                                                    `}
-                                            >
-                                                <img
-                                                    src={el.svgIcon}
-                                                    alt="svg-icon"
-                                                />
-                                            </div>
-                                            <div>
-                                                <p
-                                                    className={`item-title ${
-                                                        isDisabled
-                                                            ? "item-title-disabled"
-                                                            : ""
-                                                    }`}
-                                                >
-                                                    {el.title}
-                                                </p>
-                                                <p className="item-value">
-                                                    {el.value}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <PackageInformationDetails />
                     </div>
                 </div>
                 <div className="look-for-my-package">
@@ -246,6 +167,57 @@ export const PackageInformation = () => {
                             misma.
                         </p>
                         <p>¡Quedamos a las órdenes para ayudarte!</p>
+                    </div>
+
+                    <div className="look-for-my-package-footer">
+                        <button>
+                            <span>Quiero recogerlo</span>
+                            <svg
+                                width="25"
+                                height="25"
+                                viewBox="0 0 25 25"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g clip-path="url(#clip0_2741_8186)">
+                                    <rect
+                                        x="0.5"
+                                        y="0.379883"
+                                        width="24"
+                                        height="24"
+                                        rx="4"
+                                        fill="#FF7500"
+                                    />
+                                    <path
+                                        d="M17.8327 8.37988L10.4993 15.7132L7.16602 12.3799"
+                                        stroke="white"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </g>
+                                <rect
+                                    x="1"
+                                    y="0.879883"
+                                    width="23"
+                                    height="23"
+                                    rx="3.5"
+                                    stroke="#D9632B"
+                                />
+                                <defs>
+                                    <clipPath id="clip0_2741_8186">
+                                        <rect
+                                            x="0.5"
+                                            y="0.379883"
+                                            width="24"
+                                            height="24"
+                                            rx="4"
+                                            fill="white"
+                                        />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>

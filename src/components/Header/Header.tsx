@@ -1,5 +1,5 @@
 import {HeaderLink} from "../HeaderLink/HeaderLink";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/images/logo.svg";
 import "./Header.css";
 
 export const Header = () => {

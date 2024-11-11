@@ -1,6 +1,6 @@
 import {Header} from "../../components/Header/Header";
 import {Footer} from "../../components/Footer/Footer";
-import signing from "../../assets/signing.svg";
+import signing from "../../assets/images/signing.svg";
 import "./TrackPackage.css";
 
 export const TrackPackage = () => {

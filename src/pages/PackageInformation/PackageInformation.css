@@ -80,6 +80,7 @@
     font-size: 22px;
     font-weight: 700;
     font-style: italic;
+    font-family: "SimplySans";
     color: var(--black)
 }
 
@@ -94,7 +95,7 @@
 
 .rounded-ball-container .line {
     position: relative;
-    height: 64px;
+    height: 52px;
     width: 20px;
     border-left: 2px dashed var(--black);
     margin: 12px 0 12px 5px;
@@ -122,13 +123,19 @@
     background-color: var(--black);
 }
 
+.package-tracker-status p {
+    font-family: "Mulish";
+}
+
 .package-tracker-status p:first-child{
-    font-weight: 500;
-    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
     color: var(--black);
 }
 
 .package-tracker-status p:last-child{
+    font-size: 15px;
     color: var(--lightblack);
 }
 
@@ -147,7 +154,7 @@
 }
 
 .extra-data-header .item-title {
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
 }
@@ -157,7 +164,7 @@
 }
 
 .extra-data-header .item-value {
-    font-size: 15px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     margin-top: 8px;
@@ -170,11 +177,30 @@
 }
 
 .look-for-my-package-body p {
+    font-size: 16px;
     padding-bottom: 20px;
 }
 
 .look-for-my-package-body p span {
     font-weight: 600;
+}
+
+.look-for-my-package-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 184px;
+    height: 48px;
+    gap: 14px;
+    border-radius: 4px;
+    padding: 0px 4px;
+    background-color: var(--orange);
+    color: var(--white);
+    border: 0;
+    outline: none;
+    margin: 0 auto;
+    font-weight: 600;
+    box-sizing: border-box;
 }
 
 @media all and (max-width: 1024px) {
