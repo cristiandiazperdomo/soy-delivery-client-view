@@ -118,7 +118,7 @@ export const PackageInformation = () => {
                                         d="M3.16667 3.83333H9.66667M3.16667 7H9.66667M3.16667 10H9.66667M13 4.33333V10C13 12 12 13.3333 9.66667 13.3333H4.33333C2 13.3333 1 12 1 10V4.33333C1 2.33333 2 1 4.33333 1H9.66667C12 1 13 2.33333 13 4.33333Z"
                                         stroke="white"
                                         strokeWidth="1.5"
-                                        stroke-miterlimit="10"
+                                        strokeMiterlimit="10"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                     />
@@ -163,7 +163,10 @@ export const PackageInformation = () => {
                                     el.title === "Número de rastreo secundario";
 
                                 return (
-                                    <div className="extra-data-item">
+                                    <div
+                                        className="extra-data-item"
+                                        key={el.title}
+                                    >
                                         <div className="extra-data-header">
                                             <div
                                                 className={`svg-container
@@ -204,22 +207,18 @@ export const PackageInformation = () => {
                     <div className="look-for-my-package-header">
                         <div className="svg-container">
                             <svg
-                                viewBox="0 0 12 11"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
-                                <circle
-                                    cx="6"
-                                    cy="5.37988"
-                                    r="4.6875"
+                                <path
+                                    d="M7 1.37988L8.854 5.32941L13 5.96663L10 9.03919L10.708 13.3799L7 11.3294L3.292 13.3799L4 9.03919L1 5.96663L5.146 5.32941L7 1.37988Z"
                                     stroke="white"
                                     strokeWidth="1.125"
-                                />
-                                <path
-                                    d="M6 2.00488V5.37988L8.625 6.50488"
-                                    stroke="white"
-                                    strokeWidth="0.75"
                                     strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 />
                             </svg>
                         </div>

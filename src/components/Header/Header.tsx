@@ -16,6 +16,7 @@ export const Header = () => {
                         {name: "Carrito", direction: "/carrito"},
                     ].map((route) => (
                         <HeaderLink
+                            key={route.name}
                             name={route.name}
                             direction={route.direction}
                         />
@@ -32,10 +33,10 @@ export const Header = () => {
                         <path
                             d="M15 7.35135L7.02719 7.35135L1 7.35135M15 13L1 13M15 2L7.02719 2L1 2"
                             stroke="white"
-                            stroke-width="1.5"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="1.5"
+                            strokeMiterlimit="10"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                         />
                     </svg>
                 </div>

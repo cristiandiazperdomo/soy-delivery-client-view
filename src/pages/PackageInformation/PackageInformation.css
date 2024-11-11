@@ -7,7 +7,7 @@
 .package-information .package-information-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
 }
 
 .package-information, .extra-data {
@@ -139,7 +139,7 @@
 .extra-data-body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 24px;
 } 
 
 .extra-data-item .extra-data-header {
@@ -170,7 +170,7 @@
 }
 
 .look-for-my-package-body p {
-    padding-bottom: 16px;
+    padding-bottom: 20px;
 }
 
 .look-for-my-package-body p span {
