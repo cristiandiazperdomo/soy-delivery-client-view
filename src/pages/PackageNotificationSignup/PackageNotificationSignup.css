@@ -20,7 +20,7 @@
     line-height: 58px;
     color: var(--white);
     margin-bottom: 12px;
-    font-weight: 900;
+    font-family: 'MuseoSansRounded';
 }
 
 .form-subtext {
@@ -29,7 +29,7 @@
 }
 
 .form-subtext-smaller {
-    margin: 20px 0;
+    margin: 8px 0 20px 0;
     font-size: 12px;
 }
 

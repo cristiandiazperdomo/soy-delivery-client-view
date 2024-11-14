@@ -69,7 +69,7 @@ export const getPackageInfo = createAsyncThunk(
 
             let isThereAnError = false;
 
-            if (data.error || data.Error_code) {
+            if (data.Error_code || data.error) {
                 const errorCode = data.Error_code || data.error.code;
                 isThereAnError = checkForError(errorCode);
             }
