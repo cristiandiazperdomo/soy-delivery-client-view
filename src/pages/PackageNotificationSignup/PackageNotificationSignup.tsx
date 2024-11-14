@@ -8,7 +8,7 @@ import {OkSvg} from "../../components/Svg/OkSvg";
 
 export const PackageNotificationSignup = () => {
     return (
-        <div className="min-h-screen">
+        <>
             <Header />
             <div className="form">
                 <form className="form-container">
@@ -20,9 +20,15 @@ export const PackageNotificationSignup = () => {
                         electrónico, llenando el siguiente formulario:
                     </p>
                     <div className="input-container">
-                        <ClassicInput placeholder="Nombre y apellido" />
-                        <ClassicInput placeholder="Celular" />
-                        <ClassicInput placeholder="Correo electrónico" />
+                        <ClassicInput
+                            type="text"
+                            placeholder="Nombre y apellido"
+                        />
+                        <ClassicInput type="text" placeholder="Celular" />
+                        <ClassicInput
+                            type="text"
+                            placeholder="Correo electrónico"
+                        />
                     </div>
                     <p className="form-subtext-smaller">
                         Asegúrate de que sea tu correo habitual, para no
@@ -32,6 +38,6 @@ export const PackageNotificationSignup = () => {
                 </form>
             </div>
             <Footer />
-        </div>
+        </>
     );
 };

@@ -12,6 +12,11 @@ interface Status {
     date: string;
 }
 
+interface PickUpStatus {
+    code: number;
+    description: string;
+}
+
 export interface PackageBase {
     trackingNumber: string;
     secondaryTrackingNumber: string;
@@ -24,6 +29,7 @@ export interface PackageBase {
 
 export interface Package extends PackageBase {
     error: PackageError;
+    pickupStatus: PickUpStatus;
     history: Status[];
 }
 
@@ -40,13 +46,44 @@ const initialState: Package = {
     originAddress: "",
     deliveryAddress: "",
     history: [],
+    pickupStatus: {
+        code: 200,
+        description: "",
+    },
     error: {
         code: 200,
         description: "",
     },
 };
 
-const {VITE_PACKAGE_QUERY_API_URL} = import.meta.env;
+const {VITE_PACKAGE_QUERY_API_URL, VITE_UPDATE_ORDER_TO_PICKUP_URL} =
+    import.meta.env;
+
+export const updateOrderToPickup = createAsyncThunk(
+    "package/updateOrderToPickup",
+    async ({
+        formData,
+        dispatch,
+    }: {
+        formData: RequestBody;
+        dispatch: Dispatch;
+    }) => {
+        try {
+            const response = await fetch(VITE_UPDATE_ORDER_TO_PICKUP_URL, {
+                method: "POST",
+                body: JSON.stringify({...formData, origen: "web"}),
+            });
+
+            const data = await response.json();
+
+            dispatch(desactiveLoader());
+
+            return data;
+        } catch (error) {
+            if (error instanceof Error) console.error(error);
+        }
+    }
+);
 
 export const getPackageInfo = createAsyncThunk(
     "package/getPackageInfo",
@@ -95,9 +132,7 @@ export const getPackageInfo = createAsyncThunk(
                 clientName: formData.destinatario,
             };
         } catch (error) {
-            // API always returns 200 status code
             if (error instanceof Error) console.error(error.message);
-            console.log("buenas tardes");
         }
     }
 );
@@ -150,69 +185,73 @@ export const messages: Messages = {
     eliminado: "Tu pedido ha sido eliminado",
 };
 
+const mapHistory = (history: any) => {
+    return history
+        .map((point: any) => {
+            let {PedidoHistorialDetalle, PedidoHistorialFecha} = point;
+
+            PedidoHistorialDetalle = PedidoHistorialDetalle.toLowerCase();
+
+            const status =
+                packageStatusCodes.find((status) =>
+                    PedidoHistorialDetalle.includes(status)
+                ) || "pendiente";
+
+            return {
+                status,
+                description: messages[status],
+                date: PedidoHistorialFecha,
+            };
+        })
+        .reverse()
+        .filter((point: any) => point !== null);
+};
+
 export const packageSlice = createSlice({
     name: "package",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(getPackageInfo.fulfilled, (state, action) => {
-            const {
-                PedidoConsultaSDT,
-                clientName,
-                trackingNumber,
-                Error_code,
-                Error_desc,
-            } = action.payload;
+        builder
+            .addCase(getPackageInfo.fulfilled, (state, action) => {
+                const {
+                    PedidoConsultaSDT,
+                    clientName,
+                    trackingNumber,
+                    Error_code,
+                    Error_desc,
+                } = action.payload;
 
-            state.error.code = Error_code;
-            state.error.description = Error_desc;
-            state.trackingNumber = trackingNumber;
-            state.clientName = clientName;
+                state.error = {code: Error_code, description: Error_desc};
+                state.trackingNumber = trackingNumber;
+                state.clientName = clientName;
 
-            const isThereAnError = Error_code > 299 || Error_code < 200;
+                const isThereAnError = Error_code > 299 || Error_code < 200;
 
-            if (isThereAnError) return;
+                if (isThereAnError) return;
 
-            const {
-                PedidoExternalId,
-                PedidoTelefonoCliente,
-                PedidoDireccion,
-                PedidoDireccionOrigen,
-                PedidoHistorial,
-            } = PedidoConsultaSDT;
+                const {
+                    PedidoExternalId,
+                    PedidoTelefonoCliente,
+                    PedidoDireccion,
+                    PedidoDireccionOrigen,
+                    PedidoHistorial,
+                } = PedidoConsultaSDT;
 
-            state.secondaryTrackingNumber = PedidoExternalId;
-            state.clientPhoneNumber = PedidoTelefonoCliente;
-            state.originAddress = PedidoDireccionOrigen;
-            state.deliveryAddress = PedidoDireccion;
-            state.history = PedidoHistorial.map((point: any) => {
-                let {PedidoHistorialDetalle, PedidoHistorialFecha} = point;
-
-                let packageStatusIndex = 0;
-
-                PedidoHistorialDetalle = PedidoHistorialDetalle.toLowerCase();
-
-                for (let i = 0; i < packageStatusCodes.length; i++) {
-                    if (
-                        PedidoHistorialDetalle.includes(packageStatusCodes[i])
-                    ) {
-                        packageStatusIndex = i;
-                        break;
-                    }
-                }
-
-                const packageStatusCode =
-                    packageStatusCodes[packageStatusIndex];
-
-                return {
-                    status: packageStatusCode,
-                    description: messages[packageStatusCode],
-                    date: PedidoHistorialFecha,
-                };
+                state.secondaryTrackingNumber = PedidoExternalId;
+                state.clientPhoneNumber = PedidoTelefonoCliente;
+                state.originAddress = PedidoDireccionOrigen;
+                state.deliveryAddress = PedidoDireccion;
+                state.history = mapHistory(PedidoHistorial);
             })
-                .reverse()
-                .filter((point: any) => point !== null);
-        });
+            .addCase(updateOrderToPickup.fulfilled, (state, action: any) => {
+                const {Error_code, Error_desc} = action.payload;
+
+                state.pickupStatus = {
+                    code: Error_code,
+                    description: Error_desc,
+                };
+            });
     },
 });
 

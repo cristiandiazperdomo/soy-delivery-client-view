@@ -13,4 +13,10 @@
     border: 0;
     height: 40px;
     border-radius: 4px;
+    transition: 0.2s;
+}
+
+.gray-button:focus {
+    position: relative; /* Necesario para que el anillo funcione correctamente */
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.25); /* Anillo de 4px con color rgba */
 }

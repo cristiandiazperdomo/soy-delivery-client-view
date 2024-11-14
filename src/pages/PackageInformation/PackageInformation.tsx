@@ -8,7 +8,10 @@ import {Loader} from "../../components/Loader/Loader";
 import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
 
 import {activeLoader} from "../../redux/feature/loaderSlice";
-import {getPackageInfo} from "../../redux/feature/packageSlice";
+import {
+    getPackageInfo,
+    updateOrderToPickup,
+} from "../../redux/feature/packageSlice";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxTypes";
 
 import {ArrowDownSvg} from "../../components/Svg/ArrowDownSvg";
@@ -25,12 +28,31 @@ export const PackageInformation = () => {
     const [amountOfElements, setAmountOfElements] = useState(2);
 
     const showLoader = useAppSelector((state) => state.loader);
-    const {history, error, ...rest} = useAppSelector((state) => state.package);
+    const {history, pickupStatus, error, ...rest} = useAppSelector(
+        (state) => state.package
+    );
 
     const dispatch = useAppDispatch();
 
-    const navigate = useNavigate();
     const {trackingNumber, clientName} = useParams();
+
+    const handlePickupPackage = () => {
+        const hasUserReceivedResponse = pickupStatus.description;
+        if (trackingNumber && clientName && !hasUserReceivedResponse) {
+            dispatch(activeLoader());
+            dispatch(
+                updateOrderToPickup({
+                    formData: {
+                        pedidoId: trackingNumber,
+                        destinatario: clientName,
+                    },
+                    dispatch,
+                })
+            );
+        }
+    };
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (rest.clientName === "" && trackingNumber && clientName) {
@@ -61,7 +83,7 @@ export const PackageInformation = () => {
             {showLoader && <Loader />}
             <div className="package-information">
                 <div className="package-information-container">
-                    <div>
+                    <div className="package-information-left">
                         <div className="banner-top">
                             <SDWhiteLogo />
                             <div className="current-status">
@@ -119,7 +141,7 @@ export const PackageInformation = () => {
                                 })}
                             </div>
                             {history.length > 2 && (
-                                <div>
+                                <div className="package-tracker-footer">
                                     {amountOfElements === history.length ? (
                                         <>
                                             <GrayButton
@@ -197,9 +219,19 @@ export const PackageInformation = () => {
                     </div>
 
                     <div className="look-for-my-package-footer">
-                        <button>
-                            <span>Quiero recogerlo</span>
-                            <StarSvg />
+                        <button onClick={handlePickupPackage}>
+                            {!pickupStatus.description ? (
+                                <>
+                                    <span>Quiero recogerlo</span>
+                                    <StarSvg />
+                                </>
+                            ) : (
+                                <div className="pickupStatus-response">
+                                    <p className="mx-auto">
+                                        {pickupStatus.description}
+                                    </p>
+                                </div>
+                            )}
                         </button>
                     </div>
                 </div>
