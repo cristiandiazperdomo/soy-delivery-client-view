@@ -10,8 +10,8 @@ export const PackageNotificationSignup = () => {
     return (
         <>
             <Header />
-            <div className="form">
-                <form className="form-container">
+            <div className="package-notification-signup">
+                <form className="form">
                     <h2 className="form-title">
                         ¿Compraste en Temu y necesitas seguir tu pedido?
                     </h2>

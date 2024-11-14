@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk, Dispatch} from "@reduxjs/toolkit";
 import {desactiveLoader} from "./loaderSlice";
+import {NavigateFunction} from "react-router-dom";
 
 export interface PackageError {
     code: number;
@@ -93,7 +94,7 @@ export const getPackageInfo = createAsyncThunk(
         dispatch,
     }: {
         formData: RequestBody;
-        navigate?: any;
+        navigate?: NavigateFunction;
         dispatch: Dispatch;
     }) => {
         try {

@@ -7,7 +7,7 @@ export const GrayButton = ({
 }: {
     text: string;
     svg: any;
-    event?: any;
+    event?: () => void;
 }) => {
     return (
         <button className="gray-button" onClick={event}>

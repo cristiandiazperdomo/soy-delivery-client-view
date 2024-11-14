@@ -40,13 +40,13 @@ export const TrackPackage = () => {
 
         if (hasEmptyValues) return;
 
-        const reqBody = {
+        const formData = {
             pedidoId: trackingNumberVal,
             destinatario: clientNameVal,
         };
 
         dispatch(activeLoader());
-        dispatch(getPackageInfo({formData: reqBody, navigate, dispatch}));
+        dispatch(getPackageInfo({formData, navigate, dispatch}));
     };
 
     return (
