@@ -4,17 +4,17 @@
 
 .track-package-container {
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 100px;
+    padding: 100px 24px;
     box-sizing: border-box;
 }
 
 .track-package-title {
-    text-align: center;
     font-size: 44px;
-    font-weight: 800;
+    font-family: 'MuseoSansRounded';
+    max-width: 517px;
+    margin-bottom: 40px;
 }
 
 .track-form {
@@ -41,4 +41,20 @@
         display: none;
     }
 
+    .track-package-title {
+        text-align: center;
+    }
+
+}
+
+@media all and (max-width: 768px) {
+    .track-package-container {
+        padding: 52100 52px;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .track-package-container {
+        padding: 52px 24px;
+    }
 }

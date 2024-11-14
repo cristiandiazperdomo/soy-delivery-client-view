@@ -55,7 +55,9 @@ export const TrackPackage = () => {
             {showLoader && <Loader />}
             <div className="track-package-container">
                 <div>
-                    <h2 className="track-package-title">Rastrea tu paquete</h2>
+                    <h2 className="track-package-title">
+                        Rastrea tu pedido de principio a fin
+                    </h2>
                     <div className="track-form">
                         <form onSubmit={sendFormData}>
                             <p className="track-package-subtext">

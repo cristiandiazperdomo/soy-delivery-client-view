@@ -1,9 +1,9 @@
 import "./ClassicInput.css";
 
-interface Classic {
+interface ClassicInputProps {
     placeholder: string;
 }
 
-export const ClassicInput = ({placeholder}: Classic) => {
+export const ClassicInput = ({placeholder}: ClassicInputProps) => {
     return <input className="classic-input" placeholder={placeholder} />;
 };

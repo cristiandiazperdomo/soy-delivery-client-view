@@ -7,6 +7,11 @@
 }
 
 @font-face {
+    font-family: 'MuseoSansRounded';
+    src: url('./assets/fonts/MuseoSansRounded900.otf') format('opentype');
+}
+
+@font-face {
     font-family: 'SimplySans';
     src: url('./assets/fonts/SimplySans-BoldItalic.ttf') format('truetype');
 }
