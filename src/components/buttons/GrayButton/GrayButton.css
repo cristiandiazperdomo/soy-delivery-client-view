@@ -1,0 +1,16 @@
+.gray-button {
+    cursor: pointer;
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--white);
+    background-color: var(--black);
+    outline: none;
+    border: 0;
+    height: 40px;
+    border-radius: 4px;
+}

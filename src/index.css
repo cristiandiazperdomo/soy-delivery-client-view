@@ -11,6 +11,10 @@
     src: url('./assets/fonts/SimplySans-BoldItalic.ttf') format('truetype');
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Karla", sans-serif;
 }
@@ -27,10 +31,6 @@ input {
     border: 0;
     outline: none;
     min-width: 0;
-}
-
-input::placeholder {
-    font-size: 14px;
 }
 
 button {

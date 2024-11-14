@@ -1,0 +1,23 @@
+.item-input-container {
+    width: 100%;
+    display: grid;
+    row-gap: 20px;
+}
+
+.item-input-container {
+    position: relative;
+}
+
+.item-input-container {
+    margin-bottom: 20px;
+}
+
+.item-input-container input {
+    padding-left: 44px;
+}
+
+.item-input-container svg {
+    position: absolute;
+    top: 16px;
+    margin-left: 16px;
+}

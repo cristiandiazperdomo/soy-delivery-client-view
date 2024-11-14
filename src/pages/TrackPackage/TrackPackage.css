@@ -1,4 +1,8 @@
-.track-order-container {
+.track-package {
+    position: relative;
+}
+
+.track-package-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.track-order-title {
+.track-package-title {
     text-align: center;
     font-size: 44px;
     font-weight: 800;
@@ -27,30 +31,6 @@
     margin-bottom: 20px;   
 }
 
-.track-package-input-container {
-    width: 100%;
-    display: grid;
-    row-gap: 20px;
-}
-
-.track-package-input-container {
-    position: relative;
-}
-
-.track-package-input-container {
-    margin-bottom: 20px;
-}
-
-.track-package-input-container input {
-    padding-left: 44px;
-}
-
-.track-package-input-container svg {
-    position: absolute;
-    top: 16px;
-    margin-left: 16px;
-}
-
 .representative {
     height: 100%;
     margin-left: 100px;
@@ -61,7 +41,4 @@
         display: none;
     }
 
-    .track-order-container {
-        padding: 20px 20px;
-    }
 }

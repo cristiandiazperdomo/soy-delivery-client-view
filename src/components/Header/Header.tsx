@@ -1,6 +1,7 @@
 import {HeaderLink} from "../HeaderLink/HeaderLink";
 import logo from "../../assets/images/logo.svg";
 import "./Header.css";
+import {useAppSelector} from "../../hooks/reduxTypes";
 
 export const Header = () => {
     return (
