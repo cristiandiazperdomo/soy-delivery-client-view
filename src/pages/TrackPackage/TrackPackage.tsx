@@ -1,6 +1,4 @@
 import {FormEvent, useRef} from "react";
-import {Header} from "../../components/Header/Header";
-import {Footer} from "../../components/Footer/Footer";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxTypes";
 import {getPackageInfo} from "../../redux/feature/packageSlice";
 import {useNavigate} from "react-router-dom";
@@ -50,13 +48,12 @@ export const TrackPackage = () => {
     };
 
     return (
-        <div className="track-package">
-            <Header />
+        <>
             {showLoader && <Loader />}
             <div className="track-package-container">
                 <div>
                     <h2 className="track-package-title">
-                        Rastrea tu pedido de principio a fin
+                        Tecnología e innovación aplicada a tus envíos
                     </h2>
                     <div className="track-form">
                         <form onSubmit={sendFormData}>
@@ -90,7 +87,6 @@ export const TrackPackage = () => {
                     <img src={signing} alt="people checking up" />
                 </div>
             </div>
-            <Footer />
-        </div>
+        </>
     );
 };

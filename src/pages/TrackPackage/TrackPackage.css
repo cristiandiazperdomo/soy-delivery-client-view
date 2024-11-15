@@ -1,30 +1,26 @@
-.track-package {
-    position: relative;
-}
-
 .track-package-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
     width: 100%;
-    padding: 100px 24px;
-    box-sizing: border-box;
+    padding: 80px 24px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .track-package-title {
-    font-size: 44px;
+    font-size: 48px;
     font-family: 'MuseoSansRounded';
-    max-width: 517px;
     margin-bottom: 40px;
 }
 
 .track-form {
-    max-width: 386px;
-    margin: 0 auto;
+    max-width: 480px;
     background-color: var(--orange);
     padding: 20px;
     border-radius: 12px;
     color: var(--white);
-    box-sizing: border-box;
+    margin-left: 40px;
 }
 
 .track-package-subtext {
@@ -32,24 +28,36 @@
 }
 
 .representative {
-    height: 100%;
     margin-left: 100px;
 }
 
+.representative img {
+    width: 100%;
+}
+
 @media all and (max-width: 1024px) {
+    .track-package-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
     .representative {
         display: none;
     }
 
+    .track-form {
+        margin:  0 auto;
+    }
+
     .track-package-title {
         text-align: center;
+        font-size: 32px;
     }
 
 }
 
 @media all and (max-width: 768px) {
     .track-package-container {
-        padding: 52100 52px;
+        padding: 52px 52px;
     }
 }
 

@@ -73,7 +73,7 @@ export const PackageInformation = () => {
         const isThereAnError = error.code > 299 || error.code < 200;
 
         if (isThereAnError) {
-            navigate("/rastrear-paquete");
+            navigate("/");
         }
     }, [error]);
 
