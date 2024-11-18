@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --orange: #ff7500;
     --lightorange: #ff750010;
@@ -36,6 +40,7 @@ input {
     border: 0;
     outline: none;
     min-width: 0;
+    color: var(--black)
 }
 
 /* hide SPIN BUTTONS from input type="number"*/
@@ -43,6 +48,25 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type="radio"] + label span {
+    transition: background .2s,
+      transform .2s;
+}
+
+input[type="radio"] + label span:hover,
+input[type="radio"] + label:hover span{
+  transform: scale(1.2);
+} 
+
+input[type="radio"]:checked + label span {
+  background-color: var(--orange); 
+  box-shadow: 0px 0px 0px 2px var(--white) inset;
+}
+
+input[type="radio"]:checked + label{
+   color: var(--orange); 
 }
 
 button {

@@ -1,14 +1,17 @@
+import {Link} from "react-router-dom";
 import {HeaderLink} from "../HeaderLink/HeaderLink";
 import logo from "../../assets/images/logo.svg";
+
 import "./Header.css";
-import {useAppSelector} from "../../hooks/reduxTypes";
 
 export const Header = () => {
     return (
         <header className="header">
             <div className="header-container">
-                <img src={logo} alt="logo" className="header-logo" />
-                <ul className="routes">
+                <Link to="/">
+                    <img src={logo} alt="logo" className="header-logo" />
+                </Link>
+                {/* <ul className="routes">
                     {[
                         {name: "Inicio", direction: "/"},
                         {name: "Servicio", direction: "/servicio"},
@@ -22,7 +25,7 @@ export const Header = () => {
                             direction={route.direction}
                         />
                     ))}
-                </ul>
+                </ul> 
                 <div className="mobile-routes">
                     <svg
                         width="28"
@@ -41,6 +44,7 @@ export const Header = () => {
                         />
                     </svg>
                 </div>
+                */}
             </div>
         </header>
     );

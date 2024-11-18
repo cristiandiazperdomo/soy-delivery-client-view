@@ -8,7 +8,6 @@ export interface PackageError {
 }
 
 interface Status {
-    status: string;
     description: string;
     date: string;
 }
@@ -140,69 +139,17 @@ export const getPackageInfo = createAsyncThunk(
 
 const checkForError = (errorCode: number) => errorCode > 299 || errorCode < 200;
 
-const packageStatusCodes = [
-    "ingresado",
-    "pendiente",
-    "solicitado",
-    "modificado",
-    "aceptado",
-    "retirado",
-    "no entregado",
-    "no retirado",
-    "entregado",
-    "recoordinado",
-    "cancelado",
-    "eliminado",
-];
-
-interface Messages {
-    ingresado: string;
-    pendiente: string;
-    solicitado: string;
-    modificado: string;
-    aceptado: string;
-    retirado: string;
-    "no entregado": string;
-    "no retirado": string;
-    entregado: string;
-    recoordinado: string;
-    cancelado: string;
-    eliminado: string;
-    [key: string]: string;
-}
-
-export const messages: Messages = {
-    ingresado: "Tu pedido ha llegado a Uruguay",
-    pendiente: "Tu pedido está pendiente de procesamiento",
-    modificado: "Tu pedido está esperando un conductor",
-    solicitado: "Tu pedido ha sido solicitado",
-    aceptado: "Tu pedido fue asignado a un conductor",
-    retirado: "Tu pedido ha sido retirado",
-    "no entregado": "Tu pedido no pudo ser entregado, seguiremos intentando.",
-    "no retirado": "Tu pedido no pudo ser retirado",
-    entregado: "Tu pedido ha sido entregado",
-    recoordinado: "La entrega de tu pedido fue recoordinada",
-    cancelado: "Tu pedido ha sido cancelado",
-    eliminado: "Tu pedido ha sido eliminado",
-};
-
 const mapHistory = (history: any) => {
     return history
         .map((point: any) => {
-            let {PedidoHistorialDetalle, PedidoHistorialFecha} = point;
+            const {DiccionarioEstadoNombre, PedidoHistorialFecha} = point;
 
-            PedidoHistorialDetalle = PedidoHistorialDetalle.toLowerCase();
-
-            const status =
-                packageStatusCodes.find((status) =>
-                    PedidoHistorialDetalle.includes(status)
-                ) || "pendiente";
-
-            return {
-                status,
-                description: messages[status],
-                date: PedidoHistorialFecha,
-            };
+            return DiccionarioEstadoNombre
+                ? {
+                      description: DiccionarioEstadoNombre,
+                      date: PedidoHistorialFecha,
+                  }
+                : null;
         })
         .reverse()
         .filter((point: any) => point !== null);

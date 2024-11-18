@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     width: 100%;
-    padding: 80px 24px;
+    padding: 100px 24px;
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -27,23 +27,11 @@
     margin-bottom: 20px;   
 }
 
-.representative {
-    margin-left: 100px;
-}
-
-.representative img {
-    width: 100%;
-}
-
 @media all and (max-width: 1024px) {
     .track-package-container {
         grid-template-columns: repeat(1, 1fr);
     }
     
-    .representative {
-        display: none;
-    }
-
     .track-form {
         margin:  0 auto;
     }

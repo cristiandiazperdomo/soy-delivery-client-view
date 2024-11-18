@@ -11,8 +11,10 @@ import {SearchSvg} from "../../components/Svg/SearchSvg";
 import {PencilSvg} from "../../components/Svg/PencilSvg";
 
 import signing from "../../assets/images/signing.svg";
+import temu from "../../assets/images/temulogo.png";
 
 import "./TrackPackage.css";
+import {ArrowRightSvg} from "../../components/Svg/ArrowRightSvg";
 
 export const TrackPackage = () => {
     const trackingNumberRef = useRef<HTMLInputElement>(null);
@@ -83,8 +85,37 @@ export const TrackPackage = () => {
                         </form>
                     </div>
                 </div>
-                <div className="representative">
-                    <img src={signing} alt="people checking up" />
+                <div className="lg:ml-[100px] space-y-4 flex flex-col items-center lg:items-start">
+                    <img
+                        src={signing}
+                        alt="people checking up"
+                        className="hidden lg:flex w-[500px] h-auto"
+                    />
+                    <div className="flex flex-col md:flex-row items-center justify-between p-6 border-2 border-primary rounded-lg max-w-[480px] lg:mx-0 mt-8 bg-white shadow-md">
+                        <div className="flex items-center space-x-4">
+                            <div className="rounded pl-0 sm:p-3">
+                                <img
+                                    src={temu}
+                                    alt="Logo TEMU"
+                                    className="min-w-[50px] sm:min-w-[70px] max-h-[50px] sm:max-h-[70px]"
+                                />
+                            </div>
+                            <div className="flex flex-col">
+                                <p className="text-gray-800 text-base">
+                                    ¿Querés recibir actualizaciones en todo
+                                    momento de tu pedido de temu? Registrate
+                                    aquí y recibí cada cambio de estado a tu
+                                    correo electrónico.
+                                </p>
+                                <div>
+                                    <button className="flex items-center mt-4 md:mt-0 bg-primary text-white py-3 px-6 rounded-md font-medium hover:bg-orange-600 transition-colors mx-auto">
+                                        Registrarme
+                                        <ArrowRightSvg />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
