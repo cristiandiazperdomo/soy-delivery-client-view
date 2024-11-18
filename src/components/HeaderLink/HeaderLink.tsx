@@ -7,7 +7,10 @@ interface HeaderLinkProps {
 
 export const HeaderLink = ({name, direction}: HeaderLinkProps) => {
     return (
-        <Link to={direction} className="font-extrabold text-white text-2xl">
+        <Link
+            to={direction}
+            className="font-extrabold text-white text-2xl font-simplysans"
+        >
             {name}
         </Link>
     );

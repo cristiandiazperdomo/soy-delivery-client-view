@@ -18,6 +18,7 @@
 @font-face {
     font-family: 'SimplySans';
     src: url('./assets/fonts/SimplySans-BoldItalic.ttf') format('truetype');
+    src: url('./assets/fonts/SimplySans-Bold.ttf') format('truetype');
 }
 
 * {
