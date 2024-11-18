@@ -1,5 +1,11 @@
 export const ClockSvg = () => (
-    <svg viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+        viewBox="0 0 12 11"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+    >
         <circle
             cx="6"
             cy="5.37988"

@@ -28,11 +28,15 @@ body {
     font-family: "Karla", sans-serif;
 }
 
-.header-logo,
-.footer-logo {
-    max-width: 252px;
-    max-height: auto;
-}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url("./assets/images/arrowdown.svg");
+    background-repeat: no-repeat;
+    background-position-x: 93%;
+    background-position-y: 50%;
+  
+  }
 
 input {
     border-radius: 4px;
@@ -43,7 +47,7 @@ input {
     color: var(--black)
 }
 
-/* hide SPIN BUTTONS from input type="number"*/
+/* hide SPIN BUTTONS from INPUT type="number"*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

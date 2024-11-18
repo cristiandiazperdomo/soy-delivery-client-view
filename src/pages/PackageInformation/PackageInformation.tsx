@@ -5,8 +5,6 @@ import {Footer} from "../../components/Footer/Footer";
 import {Header} from "../../components/Header/Header";
 import {PackageInformationDetails} from "../../components/PackageInformationDetails/PackageInformationDetails";
 import {Loader} from "../../components/Loader/Loader";
-import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
-
 import {activeLoader} from "../../redux/feature/loaderSlice";
 import {
     getPackageInfo,
@@ -22,7 +20,7 @@ import {ListSvg} from "../../components/Svg/ListSvg";
 import {StarSvg} from "../../components/Svg/StarSvg";
 import {OkWithBordersSvg} from "../../components/Svg/OkWithBordersSvg";
 
-import "./PackageInformation.css";
+import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
 
 export const PackageInformation = () => {
     const [amountOfElements, setAmountOfElements] = useState(2);
@@ -81,27 +79,29 @@ export const PackageInformation = () => {
         <div>
             <Header />
             {showLoader && <Loader />}
-            <div className="package-information">
-                <div className="package-information-container">
-                    <div className="package-information-left">
-                        <div className="banner-top">
+            <div className="max-w-7xl mx-0 py-12 px-4 xl:px-0 mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <div className="">
+                        <div className="flex items-center rounded-lg py-6 px-8 bg-primary text-white gap-3 text-lg">
                             <SDWhiteLogo />
-                            <div className="current-status">
+                            <div className="text-center w-full">
                                 <p>¡Hola {rest.clientName}!</p>
-                                <p>
+                                <p className="font-bold">
                                     {history?.length > 0 &&
                                         history[0]?.description}
                                 </p>
                             </div>
                         </div>
-                        <div className="package-tracker">
-                            <div className="package-tracker-header">
-                                <div className="svg-container">
+                        <div className="rounded-lg border-[3px] border-primary py-6 px-8 mt-10">
+                            <div className="flex gap-x-3">
+                                <div className="flex justify-center items-center bg-primary rounded-md min-w-[28px] h-[28px]">
                                     <ClockSvg />
                                 </div>
-                                <span>Rastreo</span>
+                                <span className="font-extrabold italic text-black font-simplysans text-xl">
+                                    Rastreo
+                                </span>
                             </div>
-                            <div className="package-tracker-body">
+                            <div className="mt-10">
                                 {history?.map((point, index) => {
                                     if (index > amountOfElements - 1) return;
 
@@ -115,33 +115,36 @@ export const PackageInformation = () => {
                                         index < amountOfElements - 1;
 
                                     return (
-                                        <div className="package-tracker-location">
-                                            <div className="rounded-ball-container">
+                                        <div className="flex gap-2">
+                                            <div className="">
                                                 <div
                                                     className={`${
                                                         index !== 0
-                                                            ? "gray"
+                                                            ? "bg-black"
                                                             : ""
-                                                    } rounded-ball ${
-                                                        !isNotLastItem &&
-                                                        "no-line"
+                                                    } w-[8px] h-[8px] rounded-full bg-primary mt-1 ${
+                                                        !isNotLastItem && "mr-4"
                                                     }`}
                                                 ></div>
 
                                                 {isNotLastItem && (
-                                                    <div className="line"></div>
+                                                    <div className="relative h-[52px] w-[20px] border-l-2 border-dashed border-gray/30 ml-[3px]"></div>
                                                 )}
                                             </div>
-                                            <div className="package-tracker-status">
-                                                <p>{point.description}</p>
-                                                <p>{formattedDate}</p>
+                                            <div>
+                                                <p className="font-bold mb-2 text-black">
+                                                    {point.description}
+                                                </p>
+                                                <p className="text-gray/70">
+                                                    {formattedDate}
+                                                </p>
                                             </div>
                                         </div>
                                     );
                                 })}
                             </div>
                             {history.length > 2 && (
-                                <div className="package-tracker-footer">
+                                <div className="flex justify-center mt-3">
                                     {amountOfElements === history.length ? (
                                         <>
                                             <GrayButton
@@ -177,24 +180,28 @@ export const PackageInformation = () => {
                             )}
                         </div>
                     </div>
-                    <div className="extra-data">
-                        <div className="extra-data-header">
-                            <div className="svg-container">
+                    <div className="rounded-lg border-[3px] border-primary py-6 px-8 h-fit">
+                        <div className="flex gap-x-3">
+                            <div className="flex justify-center items-center bg-primary rounded-md min-w-[28px] h-[28px]">
                                 <ListSvg />
                             </div>
-                            <span>Información del pedido:</span>
+                            <span className="font-extrabold italic text-black font-simplysans text-xl">
+                                Información del pedido:
+                            </span>
                         </div>
                         <PackageInformationDetails packageData={rest} />
                     </div>
                 </div>
-                <div className="look-for-my-package">
-                    <div className="look-for-my-package-header">
-                        <div className="svg-container">
+                <div className="rounded-lg border-[3px] border-primary mt-10 py-6 px-8 bg-primary/5">
+                    <div className="flex gap-x-3">
+                        <div className="flex justify-center items-center bg-primary rounded-md min-w-[28px] h-[28px]">
                             <OkWithBordersSvg />
                         </div>
-                        <span>Quiero retirar mi paquete</span>
+                        <span className="font-extrabold italic text-black font-simplysans text-xl">
+                            Quiero retirar mi paquete
+                        </span>
                     </div>
-                    <div className="look-for-my-package-body">
+                    <div className="mt-10 space-y-5">
                         <p>
                             Cuando tu paquete llegue a nuestro centro de
                             distribución, tardará unas 48 horas en procesarse
@@ -218,8 +225,11 @@ export const PackageInformation = () => {
                         <p>¡Quedamos a las órdenes para ayudarte!</p>
                     </div>
 
-                    <div className="look-for-my-package-footer">
-                        <button onClick={handlePickupPackage}>
+                    <div className="">
+                        <button
+                            className="flex items-center justify-center w-[184px] min-h-[48px] gap-3 rounded-md px-1 bg-primary text-white font-semibold mx-auto mt-4"
+                            onClick={handlePickupPackage}
+                        >
                             {!pickupStatus.description ? (
                                 <>
                                     <span>Quiero recogerlo</span>

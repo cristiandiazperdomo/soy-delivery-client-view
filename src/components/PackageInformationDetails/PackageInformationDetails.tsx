@@ -45,30 +45,30 @@ export const PackageInformationDetails = ({
     packageData: PackageBase;
 }) => {
     return (
-        <div className="extra-data-body">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
             {informationDetails.map((el: InformationDetail) => {
                 const isDisabled: boolean =
                     el.title === "Número de rastreo externo";
 
                 return (
-                    <div className="extra-data-item" key={el.title}>
-                        <div className="extra-data-header">
+                    <div className="" key={el.title}>
+                        <div className="flex space-x-4">
                             <div
-                                className={`svg-container
-                        ${isDisabled ? "svg-container-disabled" : ""}
+                                className={`flex justify-center items-center rounded-md min-w-[28px] h-[28px]
+                        ${isDisabled ? "bg-gray/40" : "bg-primary"}
                             `}
                             >
                                 <img src={el.svgIcon} alt="svg-icon" />
                             </div>
                             <div>
                                 <p
-                                    className={`item-title ${
-                                        isDisabled ? "item-title-disabled" : ""
+                                    className={`font-semibold ${
+                                        isDisabled ? "text-gray/70" : ""
                                     }`}
                                 >
                                     {el.title}
                                 </p>
-                                <p className="item-value">
+                                <p className="mt-2 text-gray/70">
                                     {packageData[el.packageKey]}
                                 </p>
                             </div>

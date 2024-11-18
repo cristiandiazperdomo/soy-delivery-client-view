@@ -5,6 +5,8 @@ import {PackageInformation} from "./pages/PackageInformation/PackageInformation"
 import {Provider} from "react-redux";
 import {store} from "./redux/store";
 
+import {ClientContactForm} from "./pages/ClientContactForm/ClientContactForm";
+
 import "./css-normalizer.css";
 import "./App.css";
 
@@ -21,6 +23,10 @@ function App() {
                     <Route
                         path="/informacion-del-paquete/:trackingNumber/:clientName"
                         element={<PackageInformation />}
+                    />
+                    <Route
+                        path="/formulario-de-cliente"
+                        element={<ClientContactForm />}
                     />
                 </Routes>
             </BrowserRouter>

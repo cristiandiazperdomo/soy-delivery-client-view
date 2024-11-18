@@ -2,7 +2,7 @@ import {NewClientsSvg} from "../Svg/NewClientsSvg";
 
 export const BusinessShippingBox = () => {
     return (
-        <div className="py-[100px]">
+        <div className="py-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto max-w-7xl px-4 xl:px-0">
                 <div className="order-1 lg:order-0 mx-auto xl:mx-0 max-w-full overflow-hidden">
                     <NewClientsSvg />
@@ -52,7 +52,7 @@ export const BusinessShippingBox = () => {
                                     ))}
                                 </ul>
                                 <div>
-                                    <button className="bg-gray-800 text-sm text-gray-100 py-3 px-8 rounded-md font-bold w-full">
+                                    <button className="bg-gray text-sm text-white py-3 px-8 rounded-md font-bold w-full">
                                         Agregar al carrito
                                     </button>
                                 </div>

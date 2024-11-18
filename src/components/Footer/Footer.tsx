@@ -5,15 +5,17 @@ import fb from "../../assets/images/fb.svg";
 import linkedin from "../../assets/images/in.svg";
 import tw from "../../assets/images/tw.svg";
 
-import "./Footer.css";
-
 export const Footer = () => {
     return (
-        <footer className="footer">
-            <div className="footer-container">
-                <img src={logo} alt="logo" className="footer-logo" />
-                <div className="footer-location">
-                    <p className="footer-title">
+        <footer className="flex items-center min-h-[246px] bg-gray">
+            <div className="grid grid-cols-1 lg:grid-cols-4 items-center gap-6 w-full max-w-7xl mx-auto text-white">
+                <img
+                    src={logo}
+                    alt="logo"
+                    className="max-w-[200px] sm:max-w-[252px] max-h-auto mx-auto lg:mx-0 mt-10 lg:mt-0"
+                />
+                <div className="hidden lg:flex flex-col">
+                    <div className="flex items-center font-extrabold">
                         <svg
                             width="28"
                             height="28"
@@ -46,15 +48,15 @@ export const Footer = () => {
                                 </clipPath>
                             </defs>
                         </svg>
-                        <span className="footer-department">Montevideo</span>
-                    </p>
-                    <div className="footer-address">
+                        <span className="ml-3">Montevideo</span>
+                    </div>
+                    <div className="ml-10">
                         <p>República Corea 2962</p>
                         <p>San Salvador 1480</p>
                     </div>
                 </div>
-                <div className="footer-email">
-                    <p className="footer-title">
+                <div className="hidden lg:flex flex-col">
+                    <div className="flex items-center font-extrabold">
                         <svg
                             width="28"
                             height="28"
@@ -69,18 +71,16 @@ export const Footer = () => {
                             />
                         </svg>
 
-                        <span className="footer-detail footer-title">
-                            Correo
-                        </span>
-                    </p>
-                    <div className="footer-address">
+                        <span className="ml-3 font-extrabold">Correo</span>
+                    </div>
+                    <div className="ml-10">
                         <p>comercial@soydelivery.com</p>
                         <p>rrhh@soydelivery.com.uy</p>
                     </div>
                 </div>
-                <div className="footer-social">
-                    <span className="footer-title">Seguinos en Redes</span>
-                    <div className="footer-social-networks">
+                <div className="font-extrabold text-center">
+                    <span className="mx-auto w-full">Seguinos en Redes</span>
+                    <div className="w-[189px] mx-auto grid grid-cols-4 gap-6 justify-center pt-2">
                         {[ig, fb, linkedin, tw].map((icon, index) => (
                             <img src={icon} alt="icon" key={index} />
                         ))}

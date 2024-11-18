@@ -4,6 +4,7 @@
 <path d="M4 0.726562V10.2266" stroke="white" strokeLinecap="round" />
 <path d="M9 0.726562V10.2266" stroke="white" strokeLinecap="round" />
 <path d="M10.2354 0.5V10.4263M11.1946 0.5V10.4263" stroke="white" strokeWidth="0.5" strokeLinecap="round" />
-<rect x="0.75" y="4.97656" width="7.5" height="11.5" rx="1.25" fill="#969490" stroke="white" strokeWidth="1.5" />
+<rect x="0.75" y="4.97656" width="7.5" height="11.5" rx="1.25" fill="#919191" stroke="white" strokeWidth="1.5" />
+
 
 </svg>

@@ -2,19 +2,18 @@ import {FormEvent, useRef} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxTypes";
 import {getPackageInfo} from "../../redux/feature/packageSlice";
 import {useNavigate} from "react-router-dom";
-import {FormError} from "../../components/FormError/FormError";
-import {Loader} from "../../components/Loader/Loader";
+import {FormError} from "../FormError/FormError";
+import {Loader} from "../Loader/Loader";
 import {activeLoader} from "../../redux/feature/loaderSlice";
-import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
-import {ItemInput} from "../../components/Inputs/ItemInput/ItemInput";
-import {SearchSvg} from "../../components/Svg/SearchSvg";
-import {PencilSvg} from "../../components/Svg/PencilSvg";
+import {ItemInput} from "../Inputs/ItemInput/ItemInput";
+import {SearchSvg} from "../Svg/SearchSvg";
+import {PencilSvg} from "../Svg/PencilSvg";
 
 import signing from "../../assets/images/signing.svg";
 import temu from "../../assets/images/temulogo.png";
 
-import "./TrackPackage.css";
-import {ArrowRightSvg} from "../../components/Svg/ArrowRightSvg";
+import {ArrowRightSvg} from "../Svg/ArrowRightSvg";
+import {GrayButton} from "../buttons/GrayButton/GrayButton";
 
 export const TrackPackage = () => {
     const trackingNumberRef = useRef<HTMLInputElement>(null);
@@ -52,14 +51,19 @@ export const TrackPackage = () => {
     return (
         <>
             {showLoader && <Loader />}
-            <div className="track-package-container">
+            <div className="grid grid-cols-1 md:grid-cols-2 justify-between w-full py-12 md:py-24 px-4 xl:px-0 max-w-7xl mx-auto">
                 <div>
-                    <h2 className="track-package-title">
+                    <h2 className="text-3xl md:text-5xl mb-10 font-extrabold text-center md:text-left">
                         Tecnología e innovación aplicada a tus envíos
                     </h2>
-                    <div className="track-form">
+                    <img
+                        src={signing}
+                        alt="people checking up"
+                        className="flex md:hidden w-[223px] sm:w-[340px] h-auto pb-10 mx-auto"
+                    />
+                    <div className="max-w-[480px] bg-primary p-5 rounded-md text-white mx-auto">
                         <form onSubmit={sendFormData}>
-                            <p className="track-package-subtext">
+                            <p className="mb-5">
                                 Ingresa tu número de seguimiento para saber el
                                 estado de tu pedido y verifica el destinatario
                             </p>
@@ -81,19 +85,21 @@ export const TrackPackage = () => {
                                 code={error.code}
                                 description={error.description}
                             />
-                            <GrayButton text="Buscar" svg={<SearchSvg />} />
+                            <div className="flex justify-end">
+                                <GrayButton text="Buscar" svg={<SearchSvg />} />
+                            </div>
                         </form>
                     </div>
                 </div>
-                <div className="lg:ml-[100px] space-y-4 flex flex-col items-center lg:items-start">
+                <div className="md:ml-[100px] space-y-4 flex flex-col items-center md:items-end">
                     <img
                         src={signing}
                         alt="people checking up"
-                        className="hidden lg:flex w-[500px] h-auto"
+                        className="hidden md:flex w-[480px] h-auto scale-x-[-1] mb-10 lg:mb-0"
                     />
-                    <div className="flex flex-col md:flex-row items-center justify-between p-6 border-2 border-primary rounded-lg max-w-[480px] lg:mx-0 mt-8 bg-white shadow-md">
-                        <div className="flex items-center space-x-4">
-                            <div className="rounded pl-0 sm:p-3">
+                    <div className="flex flex-col md:flex-row items-end justify-between px-6 py-2 border-2 border-primary rounded-lg max-w-[480px] md:mx-0 mt-8 bg-white shadow-md">
+                        <div className="flex space-x-6">
+                            <div className="rounded">
                                 <img
                                     src={temu}
                                     alt="Logo TEMU"
@@ -101,13 +107,13 @@ export const TrackPackage = () => {
                                 />
                             </div>
                             <div className="flex flex-col">
-                                <p className="text-gray-800 text-base">
+                                <p className="text-gray-900 font-semibold pt-2">
                                     ¿Querés recibir actualizaciones en todo
                                     momento de tu pedido de temu? Registrate
                                     aquí y recibí cada cambio de estado a tu
                                     correo electrónico.
                                 </p>
-                                <div>
+                                <div className="mt-6">
                                     <button className="flex items-center mt-4 md:mt-0 bg-primary text-white py-3 px-6 rounded-md font-medium hover:bg-orange-600 transition-colors mx-auto">
                                         Registrarme
                                         <ArrowRightSvg />

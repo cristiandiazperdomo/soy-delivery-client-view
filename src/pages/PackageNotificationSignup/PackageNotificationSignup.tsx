@@ -1,10 +1,10 @@
 import {Footer} from "../../components/Footer/Footer";
 import {Header} from "../../components/Header/Header";
-import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
 import {ClassicInput} from "../../components/Inputs/ClassicInput/ClassicInput";
 
 import "./PackageNotificationSignup.css";
 import {OkSvg} from "../../components/Svg/OkSvg";
+import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
 
 export const PackageNotificationSignup = () => {
     return (

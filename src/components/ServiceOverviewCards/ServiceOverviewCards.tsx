@@ -1,5 +1,7 @@
 import {PeopleHangingOutSvg} from "../Svg/PeopleHangingOutSvg";
 import {SDCardAnimationSvg} from "../Svg/SDCardAnimationSvg";
+import {OrangeButton} from "../buttons/OrangeButton/OrangeButton";
+import {OutlinedButton} from "../buttons/OutlinedButton/OutlinedButton";
 
 const cardData = [
     {
@@ -58,25 +60,22 @@ export const ServiceOverviewCards = () => {
                             } mt-6 md:mt-8 space-y-4 sm:space-y-0`}
                         >
                             {card.buttonText && (
-                                <button
-                                    className={`${
-                                        card.buttonPrimary
-                                            ? "bg-primary text-white"
-                                            : "border border-primary text-black"
-                                    } py-2.5 text-center mx-auto rounded-lg w-full sm:w-[140px] font-bold shadow-lg`}
-                                >
-                                    {card.buttonText}
-                                </button>
+                                <OrangeButton
+                                    paddingX="px-8 mx-0 sm:mx-auto"
+                                    text={card.buttonText}
+                                />
                             )}
                             {card.buttonText1 && (
-                                <button className="border border-primary py-2.5 text-black text-center md:mx-auto rounded-lg w-full sm:w-[140px] font-bold shadow-lg">
-                                    {card.buttonText1}
-                                </button>
+                                <OutlinedButton
+                                    paddingX="px-6"
+                                    text={card.buttonText1}
+                                />
                             )}
                             {card.buttonText2 && (
-                                <button className="bg-primary py-2.5 text-white text-center md:mx-auto rounded-lg w-full sm:w-[140px] font-bold shadow-lg">
-                                    {card.buttonText2}
-                                </button>
+                                <OrangeButton
+                                    paddingX="px-6"
+                                    text={card.buttonText2}
+                                />
                             )}
                         </div>
                     </div>

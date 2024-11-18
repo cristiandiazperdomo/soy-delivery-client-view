@@ -1,14 +1,13 @@
 import {Link} from "react-router-dom";
-import "./HeaderLink.css";
 
-interface HeaderProps {
+interface HeaderLinkProps {
     name: string;
     direction: string;
 }
 
-export const HeaderLink = ({name, direction}: HeaderProps) => {
+export const HeaderLink = ({name, direction}: HeaderLinkProps) => {
     return (
-        <Link to={direction} className="header-link">
+        <Link to={direction} className="font-extrabold text-white text-2xl">
             {name}
         </Link>
     );
