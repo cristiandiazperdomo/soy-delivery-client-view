@@ -56,7 +56,10 @@ const services: Service[] = [
 
 export const LogisticsSolutions = () => {
     return (
-        <div className="flex flex-col items-center pb-10 px-4 bg-white">
+        <div
+            className="flex flex-col items-center pb-10 px-4 bg-white"
+            id="servicio"
+        >
             <h2 className="text-4xl font-extrabold mb-16">
                 Conoce más sobre nuestros servicios
             </h2>
@@ -73,13 +76,13 @@ export const LogisticsSolutions = () => {
                         <p className="text-gray-900 mb-4">
                             {service.description}
                         </p>
-                        {service.buttonText && (
+                        {/* {service.buttonText && (
                             <OrangeButton text={service.buttonText} />
-                        )}
+                        )} */}
                     </div>
                 ))}
             </div>
-            <Link to="formulario-de-cliente" className="mt-8">
+            <Link to="contacto" className="mt-8">
                 <OrangeButton text="Contactar" paddingX="px-8" />
             </Link>
         </div>

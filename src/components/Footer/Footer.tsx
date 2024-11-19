@@ -51,8 +51,10 @@ export const Footer = () => {
                         <span className="ml-3">Montevideo</span>
                     </div>
                     <div className="ml-10">
-                        <p>República Corea 2962</p>
-                        <p>San Salvador 1480</p>
+                        <p className="text-sm">
+                            Pick Up Pedidos: República Corea 2962
+                        </p>
+                        <p className="text-sm">Tada: San Salvador 1480</p>
                     </div>
                 </div>
                 <div className="hidden lg:flex flex-col">
@@ -74,8 +76,8 @@ export const Footer = () => {
                         <span className="ml-3 font-extrabold">Correo</span>
                     </div>
                     <div className="ml-10">
-                        <p>comercial@soydelivery.com</p>
-                        <p>rrhh@soydelivery.com.uy</p>
+                        <p className="text-sm">comercial@soydelivery.com</p>
+                        <p className="text-sm">rrhh@soydelivery.com.uy</p>
                     </div>
                 </div>
                 <div className="font-extrabold text-center">

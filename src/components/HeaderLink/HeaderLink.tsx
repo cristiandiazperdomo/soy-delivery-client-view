@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 interface HeaderLinkProps {
     name: string;
@@ -6,12 +6,25 @@ interface HeaderLinkProps {
 }
 
 export const HeaderLink = ({name, direction}: HeaderLinkProps) => {
+    const navigate = useNavigate();
+
+    const handleRelocation = () => {
+        if (direction.startsWith("#")) {
+            navigate("/");
+            const element = document.getElementById(direction.replace("#", ""));
+            if (element)
+                element.scrollIntoView({behavior: "smooth", block: "start"});
+        } else {
+            navigate(direction);
+        }
+    };
+
     return (
-        <Link
-            to={direction}
+        <button
             className="font-extrabold text-white text-2xl font-simplysans"
+            onClick={handleRelocation}
         >
             {name}
-        </Link>
+        </button>
     );
 };

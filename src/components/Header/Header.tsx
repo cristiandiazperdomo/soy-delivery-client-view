@@ -5,14 +5,14 @@ import logo from "../../assets/images/logo.svg";
 
 const headerOptions = [
     {name: "Inicio", direction: "/"},
-    {name: "Servicio", direction: "/servicio"},
+    {name: "Servicio", direction: "#servicio"},
     {name: "Conocenos", direction: "/conocenos"},
     {name: "Contacto", direction: "/contacto"},
     {name: "Carrito", direction: "/carrito"},
 ];
 
 const availableOptions = headerOptions.filter((option) =>
-    "Contacto, Inicio".includes(option.name)
+    "Inicio, Servicio, Contacto".includes(option.name)
 );
 
 export const Header = () => {
@@ -26,7 +26,7 @@ export const Header = () => {
                         className="w-[200px] lg:w-[252px] max-h-auto"
                     />
                 </Link>
-                <ul className="hidden lg:flex justify-end gap-10">
+                <ul className="hidden lg:flex justify-between gap-10 w-[617px]">
                     {availableOptions.map((route) => (
                         <HeaderLink
                             key={route.name}

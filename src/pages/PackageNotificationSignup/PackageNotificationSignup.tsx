@@ -2,7 +2,6 @@ import {Footer} from "../../components/Footer/Footer";
 import {Header} from "../../components/Header/Header";
 import {ClassicInput} from "../../components/Inputs/ClassicInput/ClassicInput";
 
-import "./PackageNotificationSignup.css";
 import {OkSvg} from "../../components/Svg/OkSvg";
 import {GrayButton} from "../../components/buttons/GrayButton/GrayButton";
 
@@ -10,16 +9,19 @@ export const PackageNotificationSignup = () => {
     return (
         <>
             <Header />
-            <div className="package-notification-signup">
-                <form className="form">
-                    <h2 className="form-title">
+            <div className="px-4 lg:px-0 py-8">
+                <form className="flex flex-col items-center bg-primary pt-10 pb-4 pb-2 sm:pb-5 px-4 sm:px-8 max-w-[522px] rounded-lg mx-auto">
+                    <h2
+                        className="text-3xl sm:text-5xl text-white mb-3 font-museo"
+                        style={{lineHeight: "57px"}}
+                    >
                         ¿Compraste en Temu y necesitas seguir tu pedido?
                     </h2>
-                    <p className="form-subtext">
+                    <p className="mb-5">
                         Recibe las novedades de tu pedido por correo
                         electrónico, llenando el siguiente formulario:
                     </p>
-                    <div className="input-container">
+                    <div>
                         <ClassicInput
                             type="text"
                             placeholder="Nombre y apellido"
@@ -30,7 +32,7 @@ export const PackageNotificationSignup = () => {
                             placeholder="Correo electrónico"
                         />
                     </div>
-                    <p className="form-subtext-smaller">
+                    <p className="text-sm mb-5">
                         Asegúrate de que sea tu correo habitual, para no
                         perderte las notificaciones.
                     </p>

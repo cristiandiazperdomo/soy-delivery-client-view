@@ -98,23 +98,28 @@ export const TrackPackage = () => {
                         className="hidden md:flex w-[480px] h-auto scale-x-[-1] mb-10 lg:mb-0"
                     />
                     <div className="flex flex-col md:flex-row items-end justify-between px-6 py-2 border-2 border-primary rounded-lg max-w-[480px] md:mx-0 mt-8 bg-white shadow-md">
-                        <div className="flex space-x-6">
-                            <div className="rounded">
-                                <img
-                                    src={temu}
-                                    alt="Logo TEMU"
-                                    className="min-w-[50px] sm:min-w-[70px] max-h-[50px] sm:max-h-[70px]"
-                                />
-                            </div>
-                            <div className="flex flex-col">
-                                <p className="text-gray-900 font-semibold pt-2">
-                                    ¿Querés recibir actualizaciones en todo
-                                    momento de tu pedido de temu? Registrate
-                                    aquí y recibí cada cambio de estado a tu
-                                    correo electrónico.
+                        <div className="flex items-center space-x-6">
+                            <div className="flex flex-col items-center">
+                                <p className="text-xl text-gray-900 font-semibold font-extrabold pt-2">
+                                    Próximamente
                                 </p>
+                                <div className="flex space-x-6">
+                                    <div className="rounded">
+                                        <img
+                                            src={temu}
+                                            alt="Logo TEMU"
+                                            className="min-w-[50px] sm:min-w-[70px] max-h-[50px] sm:max-h-[70px]"
+                                        />
+                                    </div>
+                                    <p className="text-gray-900 font-semibold pt-2">
+                                        ¿Querés recibir actualizaciones en todo
+                                        momento de tu pedido de temu? Registrate
+                                        aquí y recibí cada cambio de estado a tu
+                                        correo electrónico.
+                                    </p>
+                                </div>
                                 <div className="mt-6">
-                                    <button className="flex items-center mt-4 md:mt-0 bg-primary text-white py-3 px-6 rounded-md font-medium hover:bg-orange-600 transition-colors mx-auto">
+                                    <button className="flex items-center mt-4 md:mt-0 bg-[#C8C5C0] text-white py-3 px-6 rounded-md font-medium transition-colors mx-auto">
                                         Registrarme
                                         <ArrowRightSvg />
                                     </button>

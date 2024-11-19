@@ -116,19 +116,30 @@ export const PackageInformation = () => {
 
                                     return (
                                         <div className="flex gap-2">
-                                            <div className="">
+                                            <div className="relative">
                                                 <div
                                                     className={`${
-                                                        index !== 0
-                                                            ? "bg-black"
-                                                            : ""
-                                                    } w-[8px] h-[8px] rounded-full bg-primary mt-1 ${
+                                                        index === 0
+                                                            ? "bg-primary"
+                                                            : "border-2 border-black"
+                                                    } w-[10px] h-[10px] rounded-full ${
                                                         !isNotLastItem && "mr-4"
                                                     }`}
                                                 ></div>
 
                                                 {isNotLastItem && (
-                                                    <div className="relative h-[52px] w-[20px] border-l-2 border-dashed border-gray/30 ml-[3px]"></div>
+                                                    <div
+                                                        className={`relative h-[52px] w-[20px] border-l-2 border-dashed border-gray ml-[4px] my-1.5 ${
+                                                            index === 0 &&
+                                                            "mt-[9px]"
+                                                        }`}
+                                                    >
+                                                        {index === 0 && (
+                                                            <div className="absolute top-0 -ml-[13px] -mt-[11px]">
+                                                                <ArrowUpSvg />
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 )}
                                             </div>
                                             <div>
@@ -227,12 +238,12 @@ export const PackageInformation = () => {
 
                     <div className="">
                         <button
-                            className="flex items-center justify-center w-[184px] min-h-[48px] gap-3 rounded-md px-1 bg-primary text-white font-semibold mx-auto mt-4"
+                            className="flex items-center justify-center min-h-[48px] gap-3 rounded-md px-2 bg-primary text-white font-semibold mx-auto mt-4"
                             onClick={handlePickupPackage}
                         >
                             {!pickupStatus.description ? (
                                 <>
-                                    <span>Quiero recogerlo</span>
+                                    <span>Quiero recoger mi pedido</span>
                                     <StarSvg />
                                 </>
                             ) : (

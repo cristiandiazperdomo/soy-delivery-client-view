@@ -7,6 +7,7 @@ import {store} from "./redux/store";
 
 import {ClientContactForm} from "./pages/ClientContactForm/ClientContactForm";
 
+import {Contact} from "./pages/Contact/Contact";
 import "./css-normalizer.css";
 import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
                         path="/formulario-de-cliente"
                         element={<ClientContactForm />}
                     />
+                    <Route path="/contacto" element={<Contact />} />
                 </Routes>
             </BrowserRouter>
         </Provider>

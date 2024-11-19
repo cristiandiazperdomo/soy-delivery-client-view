@@ -10,7 +10,7 @@ export const ClientContactForm = () => {
             <Header />
             <div className="flex justify-center my-12 px-4 xl:px-0">
                 <div className="px-4 md:px-8 pt-8 pb-12 bg-primary rounded-2xl max-w-[522px]">
-                    <h2 className="text-[44px] text-white font-extrabold">
+                    <h2 className="text-[44px] text-white font-extrabold font-museo">
                         Te ayudamos a impulsar tu negocio
                     </h2>
                     <p className="text-gray text-sm mb-8 mt-2 font-semibold">
